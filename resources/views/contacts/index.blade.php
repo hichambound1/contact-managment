@@ -2,7 +2,14 @@
 @section('content')
 
 <div class="container">
+
     <a href="{{route('contact.create')}}" class="btn btn-primary">Add new Contact</a>
+    @if (session('msg'))
+    <div class="alert alert-success my-3">
+        {{ session('msg') }}
+        <span class="close" data-dismiss="alert">&times;</span>
+    </div>
+@endif
     <div class="row ">
         <div class="card w-100 mt-5 shadow rounded p-3">
             <h2 class="card-title d">List of Contacts </h2>
