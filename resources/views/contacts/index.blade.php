@@ -25,7 +25,8 @@
                         <td>{{$contact->email}}</td>
                         <td>{{$contact->contact}}</td>
                         <td>
-                            <a href="" name="" id="" class="btn btn-warning""><i class="fas fa-edit"></i></a>
+                            <a href="{{route('contact.show',$contact)}}" class="btn btn-success""><i class="fas fa-eye"></i></a>
+                            <a href="{{route('contact.edit',$contact)}}"  class="btn btn-warning""><i class="fas fa-edit"></i></a>
                             <a href="" name="" id="" class="btn btn-danger""><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>

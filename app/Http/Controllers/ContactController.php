@@ -68,7 +68,8 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+
+        return view('contacts.edit',['contact'=>$contact]);
     }
 
     /**
@@ -80,7 +81,17 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|max:255|min:5',
+            'email' => 'required|email|max:255',
+            'contact' => 'required|numeric|digits:9',
+        ]);
+        $contact->update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'contact'=>$request->contact,
+        ]);
+        return redirect(route('contact.index'))->with('msg','Contact updated successfully');
     }
 
     /**
