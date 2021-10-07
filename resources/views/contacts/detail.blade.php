@@ -20,8 +20,13 @@
             <div class="row my-4">
 
                 <a href="{{route('contact.edit',$contact)}}"  class="btn btn-warning mx-3"><i class="fas fa-edit"></i>Edit</a>
-                <a href="" name="" id="" class="btn btn-danger mx-3"><i class="fas fa-trash"></i>Delete</a>
-
+                <form method="POST" action="{{route('contact.destroy',$contact)}}">
+                    @method('DELETE')
+                    @csrf
+                    <button  onclick="return confirm('Are you sure you want to delete this record?');"  class="btn btn-danger"">
+                        <i class="fas fa-trash"></i>Delete
+                    </button>
+                </form>
             </div>
         </div>
     </div>
